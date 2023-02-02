@@ -22,3 +22,13 @@ class Myclient(discord.Client):
         if command == '/ai' or command == '/bot' or command == '/chat' or command == '/chatgpt':
             bot_response = chatgpt_response(promt=user_message)
             await message.channel.send(bot_response)
+
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = Myclient(intents=intents)
+
+
+if __name__ == '__main__':
+    client.run(discord_token)
