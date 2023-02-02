@@ -13,3 +13,9 @@ class Myclient(discord.Client):
         if message.author == self.user:
             return
         command, user_message = None, None
+
+        for text in ['/ai', '/bot', '/chat', '/chatgpt']:
+            if message.content.startswith(text):
+                command = message.content.split(text)[0]
+                user_message = message.content.replace(text, '')
+                print(command, user_message)
