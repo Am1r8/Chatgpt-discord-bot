@@ -19,3 +19,6 @@ class Myclient(discord.Client):
                 command = message.content.split(text)[0]
                 user_message = message.content.replace(text, '')
                 print(command, user_message)
+        if command == '/ai' or command == '/bot' or command == '/chat' or command == '/chatgpt':
+            bot_response = chatgpt_response(promt=user_message)
+            await message.channel.send(bot_response)
